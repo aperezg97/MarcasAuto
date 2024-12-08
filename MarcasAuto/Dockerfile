@@ -9,15 +9,20 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["MarcasAuto/MarcasAuto.csproj", "MarcasAuto/"]
+# RUN mkdir -p MarcasAuto
+# RUN echo "PWD is: $PWD"
+# COPY ["MarcasAuto/MarcasAuto.csproj", "MarcasAuto/"]
+# C:\Users\alex\source\repos\MarcasAuto\MarcasAuto\MarcasAuto.csproj
+COPY ["MarcasAuto.csproj", "MarcasAuto/"]
 RUN dotnet restore "./MarcasAuto/MarcasAuto.csproj"
-COPY . .
 WORKDIR "/src/MarcasAuto"
-RUN dotnet build "./MarcasAuto.csproj" -c $BUILD_CONFIGURATION -o /app/build
+COPY . .
+RUN dotnet build "MarcasAuto.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./MarcasAuto.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+# RUN dotnet publish "./MarcasAuto.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./MarcasAuto.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app

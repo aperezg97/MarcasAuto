@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  web_api:
+    container_name: marcas_auto_api_container
+    image: marcasauto:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  postgres:
+    container_name: marcas_autos_postgres_container
+    image: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-1234}
+    volumes:
+       - $USERPROFILE/docker/volumes/marca_autos_postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+# MarcasAuto\bin\Debug\net8.0
+
+volumes:
+  data: {}
