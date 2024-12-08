@@ -1,5 +1,6 @@
 
 using MarcasAuto.IOC;
+using MarcasAuto.Application.IOC;
 
 namespace MarcasAuto
 {
@@ -29,6 +30,9 @@ namespace MarcasAuto
 
             // Db Context
             builder.Services.AddDbContexts(builder.Configuration, builder.Environment);
+
+            // services
+            builder.Services.AddServices(builder.Configuration);
 
             var app = builder.Build();
 
