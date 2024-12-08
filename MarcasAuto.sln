@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MarcasAuto", "MarcasAuto\MarcasAuto.csproj", "{07069447-2FF5-4A8C-977B-191F50A0B48C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9DFA7FF5-4509-4F61-884E-BAC531E3C296}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarcasAuto.Infraestructure", "MarcasAuto.Infraestructure\MarcasAuto.Infraestructure.csproj", "{0CEB01CE-7DB2-42E3-A10C-22334D155C8A}"
 EndProject
