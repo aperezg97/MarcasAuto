@@ -13,7 +13,11 @@ WORKDIR /src
 # RUN echo "PWD is: $PWD"
 # COPY ["MarcasAuto/MarcasAuto.csproj", "MarcasAuto/"]
 # C:\Users\alex\source\repos\MarcasAuto\MarcasAuto\MarcasAuto.csproj
-COPY ["MarcasAuto.csproj", "MarcasAuto/"]
+# COPY ["MarcasAuto.csproj", "MarcasAuto/"]
+# COPY ["MarcasAuto.Application.csproj", "MarcasAuto.Application/"]
+# COPY ["MarcasAuto.Domain.csproj", "MarcasAuto.Domain/"]
+# COPY ["MarcasAuto.Infraestructure.csproj", "MarcasAuto.Infraestructure/"]
+COPY . .
 RUN dotnet restore "./MarcasAuto/MarcasAuto.csproj"
 WORKDIR "/src/MarcasAuto"
 COPY . .
